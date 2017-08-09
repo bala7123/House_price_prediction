@@ -60,6 +60,12 @@ character_vars # 44 Character variables
 
 house_all$Age_of_bld <- (2010 - house_all$YearBuilt)
 
+# Bin the Age_of_bld as 0-30, 31-60, 61-90, >91
+
+house_all$Age_Bld_bin <- ifelse(house_all$Age_of_bld >= 0 & house_all$Age_of_bld <=30, 0,
+                                ifelse(house_all$Age_of_bld >= 31 & house_all$Age_of_bld <= 60, 1,
+                                       ifelse(house_all$Age_of_bld >= 61 & house_all$Age_of_bld <= 90, 2, 3)))
+
 # Check if any garage yr built is > 2010 (year in which this data is prepared)
 
 a <- house_all$GarageYrBlt > 2010
@@ -74,5 +80,20 @@ house_all$GarageYrBlt <- ifelse(house_all$GarageYrBlt == 2207, 2007, house_all$G
 
 house_all$Garage_age <- ifelse(is.na(house_all$GarageYrBlt), 0, (2010 - house_all$GarageYrBlt))
 
-summary(house_all$Garage_age)
+# Bin Garage Age 
+
+house_all$Grg_age_bin <- ifelse(house_all$Garage_age >= 0 & house_all$Garage_age <=25, 0,
+                                ifelse(house_all$Garage_age >= 26 & house_all$Garage_age <= 50, 1,
+                                       ifelse(house_all$Garage_age >= 51 & house_all$Garage_age <= 80, 2, 3)))
+
+# As regression and RF with the actual dataset did not yield expected results, we are binning the character data
+# Create one hot encoding via dummyVars
+# Use all the character variables and use one hot encoding on them.
+
+
+dmy1 <- dummyVars(" ~ .", data = house_all)
+
+trsf <- data.frame(predict(dmy1, newdata = house_all))
+
+dim(trsf)
 
