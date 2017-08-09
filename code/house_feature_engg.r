@@ -60,10 +60,6 @@ character_vars # 44 Character variables
 
 house_all$Age_of_bld <- (2010 - house_all$YearBuilt)
 
-# Now try to bin this age -----------------------------
-
-
-
 # Check if any garage yr built is > 2010 (year in which this data is prepared)
 
 a <- house_all$GarageYrBlt > 2010
