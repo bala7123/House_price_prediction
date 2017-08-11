@@ -93,7 +93,7 @@ house_all$Grg_age_bin <- ifelse(house_all$Garage_age >= 0 & house_all$Garage_age
 
 dmy1 <- dummyVars(" ~ .", data = house_all)
 
-trsf <- data.frame(predict(dmy1, newdata = house_all))
+hs_dmy <- data.frame(predict(dmy1, newdata = house_all))
 
-dim(trsf)
+dim(hs_dmy)
 

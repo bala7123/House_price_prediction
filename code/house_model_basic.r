@@ -61,7 +61,7 @@ rmse_eval <- function(SalePrice, lm1_pred) {
 
 # To plot using the above LM model
 
-train_sp <- house_train$SalePrice[-1460] # As we have only 1359 values in house_test (One less than train)
+train_sp <- house_train$SalePrice[-1460] # As we have only 1459 values in house_test (One less than train)
 
 result <- cbind(train_sp, mo_pred)
 
