@@ -1,4 +1,8 @@
 
+source(house_data_prep.r) # Load data preparation of house data
+
+source(house_feature_engg.r) # Load Feature Engineering of house data
+
 house_tot_train  # Total train data after FE
 house_tot_test   # Total test data after FE
 SalePrice # Dependant Variable

@@ -1,9 +1,7 @@
-library(recommenderlab)
-library(arules)
-library(proxy)
-library(glmnet)
-library(foreach)
 
+source(house_data_prep.r) # Load data preparation of house data
+
+source(house_feature_engg.r) # Load Feature Engineering of house data
 
 glm.cv.net <- cv.glmnet(data.matrix(house_tot_train), house_tot_train$SalePrice , alpha = 0.001)
 

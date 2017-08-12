@@ -1,4 +1,8 @@
 
+source(house_data_prep.r) # Load data preparation of house data
+
+source(house_feature_engg.r) # Load Feature Engineering of house data
+
 # We are going to perform Principal Component Analysis and Factor Analysis on the House data
 # The idea is to understand the data more. what are the different Factors involved in it
 # The Eigen values and much more. 
